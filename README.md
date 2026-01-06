@@ -1,6 +1,6 @@
 # Home Assistant on Kubernetes (MicroK8s)
 
-This repository contains my personal Home Assistant setup running on **Kubernetes (MicroK8s)**, along with supporting services and tooling. The goal of this repo is to keep my smart home infrastructure **reproducible, modular, and GitHub-safe** (no secrets or environment-specific values committed).
+This repository contains my personal Home Assistant setup running on **Kubernetes (MicroK8s)**, along with supporting services and tooling. The goal of this repo is to keep my smart home infrastructure **reproducible, modular, and GitHub-safe**.
 
 ---
 
