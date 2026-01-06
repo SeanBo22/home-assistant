@@ -8,6 +8,6 @@ RUN apk add --no-cache \
     build-base \
     python3-dev
 
-# Install Python deps globally into HA venv
+# Install Python deps globally into HA
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-deps -r /tmp/requirements.txt

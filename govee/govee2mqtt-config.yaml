@@ -8,4 +8,4 @@ data:
   GOVEE_MQTT_PORT: "1883"
   GOVEE_TEMPERATURE_SCALE: "F"
   RUST_LOG_STYLE: "always"
-  TZ: "America/Denver"
+  TZ: $REPLACE #Timezone

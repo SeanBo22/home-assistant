@@ -25,7 +25,7 @@ spec:
             - containerPort: 8123
           env:
             - name: TZ
-              value: "America/Denver"
+              value: $REPLACE #Timezone
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
