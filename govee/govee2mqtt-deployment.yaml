@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: govee2mqtt
+  namespace: home
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: govee2mqtt
+  template:
+    metadata:
+      labels:
+        app: govee2mqtt
+    spec:
+      hostNetwork: true
+      containers:
+      - name: govee2mqtt
+        image: ghcr.io/wez/govee2mqtt:latest
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: govee2mqtt-config
+        - secretRef:
+            name: govee-email
+        - secretRef:
+            name: govee-password
+        - secretRef:
+            name: govee-api-key
