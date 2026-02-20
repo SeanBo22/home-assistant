@@ -4,7 +4,7 @@ metadata:
   name: govee2mqtt-config
   namespace: home
 data:
-  GOVEE_MQTT_HOST: REPLACE # Cluster-IP of mosquitto svc
+  GOVEE_MQTT_HOST: $REPLACE # Cluster-IP of mosquitto svc
   GOVEE_MQTT_PORT: "1883"
   GOVEE_TEMPERATURE_SCALE: "F"
   RUST_LOG_STYLE: "always"
