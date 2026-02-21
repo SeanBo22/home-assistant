@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zigbee2mqtt
+  namespace: home
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zigbee2mqtt
+  template:
+    metadata:
+      labels:
+        app: zigbee2mqtt
+    spec:
+      hostNetwork: true
+      containers:
+        - name: zigbee2mqtt
+          image: ghcr.io/koenkk/zigbee2mqtt
+          imagePullPolicy: Always
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            privileged: true
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+            - name: zigbee-usb
+              mountPath: $REPLACE #Zigbee USB container path
+          env:
+            - name: TZ
+              value: $REPLACE #Timezone
+      volumes:
+        - name: data
+          hostPath:
+            path: $REPLACE #Data host path
+        - name: zigbee-usb
+          hostPath:
+            path: $REPLACE #Zigbee USB host path
+            type: CharDevice
